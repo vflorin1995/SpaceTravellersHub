@@ -46,6 +46,11 @@
 - GitHub: [@vflorin1995](https://github.com/vflorin1995)
 - Twitter: [@vflorin1995](https://twitter.com/vflorin1995)
 
+👤 **Recillah Khamala**
+
+- GitHub: [@Rn486](https://github.com/Rn486)
+- Twitter: [@recillahk](https://twitter.com/recillahk)
+
 ## Show your support
 
 Give a ⭐️ if you like this project!
