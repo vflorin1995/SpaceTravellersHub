@@ -12,15 +12,11 @@ const Nav = () => (
         <NavLink to="/">Rockets</NavLink>
       </li>
       <li>
-        <NavLink to="/Missions" element="Missions">
-          Missions
-        </NavLink>
+        <NavLink to="/Missions">Missions</NavLink>
       </li>
       <li>|</li>
       <li>
-        <NavLink to="/MyProfille" element="My Profile">
-          My Profile
-        </NavLink>
+        <NavLink to="/MyProfille">My Profile</NavLink>
       </li>
     </ul>
   </nav>
