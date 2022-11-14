@@ -1,3 +1,7 @@
-const Mission = () => <div>Mission</div>;
+const Mission = () => (
+  <>
+    <div>Mission</div>
+  </>
+);
 
 export default Mission;
