@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import picture1 from '../image1.png';
 
 const Nav = () => (
@@ -7,9 +8,20 @@ const Nav = () => (
       <div>Space Travellers HUb</div>
     </div>
     <ul>
-      <li>Rockets</li>
-      <li>Missions</li>
-      <li>My profile</li>
+      <li>
+        <NavLink to="/">Rockets</NavLink>
+      </li>
+      <li>
+        <NavLink to="/Missions" element="Missions">
+          Missions
+        </NavLink>
+      </li>
+      <li>|</li>
+      <li>
+        <NavLink to="/MyProfille" element="My Profile">
+          My Profile
+        </NavLink>
+      </li>
     </ul>
   </nav>
 );
