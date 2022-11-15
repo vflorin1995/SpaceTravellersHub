@@ -1,5 +1,6 @@
 const ADDROCKET = 'ADDROCKET';
 const ADDBOOKING = 'ADDBOOKING';
+const REMOVEBOOKING = 'REMOVEBOOKING';
 const URL = 'https://api.spacexdata.com/v3/rockets/';
 let newState;
 
@@ -17,6 +18,13 @@ export function addBooking(id) {
   };
 }
 
+export function removeBooking(id) {
+  return {
+    type: REMOVEBOOKING,
+    id,
+  };
+}
+
 export default function Rockets(state = [], action = {}) {
   switch (action.type) {
     case ADDROCKET:
@@ -26,11 +34,17 @@ export default function Rockets(state = [], action = {}) {
     case ADDBOOKING:
       newState = state.map((rocket) => {
         if (rocket.id !== action.id) {
-          console.log('am returnat racheta booss', action.id);
           return rocket;
         }
-        console.log('cica am adaugat boss');
         return { ...rocket, reserved: true };
+      });
+      return [...newState];
+    case REMOVEBOOKING:
+      newState = state.map((rocket) => {
+        if (rocket.id === action.id) {
+          return { ...rocket, reserved: false };
+        }
+        return rocket;
       });
       return [...newState];
     default:

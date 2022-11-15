@@ -14,6 +14,7 @@ const Rockets = () => {
           img={item.img}
           name={item.name}
           type={item.type}
+          res={item.reserved}
         />
       ))}
     </div>
