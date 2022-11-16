@@ -1,33 +1,55 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-const GetMissions = 'missions/GetMissions';
-const Missionstatus = 'missions/missionStatus';
+const initialState = { missions: [], status: 'idle' };
 
-const initialState = [];
+export const getMissions = createAsyncThunk(
+  'missions/GetMissions',
+  async () => {
+    try {
+      const initialState = await axios.get(
+        'https://api.spacexdata.com/v3/missions',
+      );
+      return initialState.data;
+    } catch (error) {
+      return error?.response;
+    }
+  },
+);
 
-export const missionStatus = (id) => ({ type: Missionstatus, payload: id });
-
-export const getMissions = createAsyncThunk(GetMissions, async () => {
-  const fetchAPI = await fetch('https://api.spacexdata.com/v3/missions/');
-  const data = await fetchAPI.json();
-  const missions = data.map((mission) => ({
-    mission_id: mission.mission_id,
-    mission_name: mission.mission_name,
-    mission_description: mission.description,
-    isJoined: false,
-  }));
-  return {
-    missions,
-  };
+const MissionSlice = createSlice({
+  name: 'missions',
+  initialState,
+  reducers: {
+    missionStatus: (state, { payload }) => {
+      const st = state;
+      st.missions = st.missions.map((obj) => (obj.mission_id === payload
+        ? { ...obj, joined: !obj.joined }
+        : obj));
+    },
+  },
+  extraReducers: (Builder) => {
+    Builder.addCase(getMissions.pending, (state) => ({
+      ...state,
+      status: 'pending',
+    }))
+      .addCase(getMissions.fulfilled, (state, action) => {
+        const st = state;
+        st.status = 'fulfilled';
+        const modifiedFectedData = action.payload.map((object) => ({
+          ...object,
+          joined: false,
+        }));
+        st.missions = modifiedFectedData;
+      })
+      .addCase(getMissions.rejected, (state, { error }) => ({
+        ...state,
+        status: error,
+      }));
+  },
 });
 
-const missionsReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case `${GetMissions}/fulfilled`:
-      return action.payload.missions;
-    default:
-      return state;
-  }
-};
+export const { missionStatus } = MissionSlice.actions;
+export const everyMissions = (state) => state.missions;
 
-export default missionsReducer;
+export default MissionSlice.reducer;

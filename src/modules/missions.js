@@ -1,67 +1,64 @@
-import { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMissions, missionStatus } from '../redux/Missions/missions';
+import {
+  everyMissions,
+  getMissions,
+  missionStatus,
+} from '../redux/Missions/missions';
 
 const Missions = () => {
-  const items = useSelector((state) => state.missions);
+  const { missions, status } = useSelector(everyMissions);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getMissions);
+  React.useEffect(() => {
+    if (status === 'idle') {
+      dispatch(getMissions());
+    }
   }, []);
 
-  const toggleStatus = (id) => {
+  const handleClick = (id) => {
     dispatch(missionStatus(id));
   };
 
   return (
-    <div id="missions-section" className="my-5 mx-20 overflow-hidden">
-      <table className=" border-collapse table-auto border-2 border-slate-200 ">
+    <div className="w-full px-2 md:px-8">
+      <table className="w-full border">
         <thead>
-          <tr className="">
-            <th className="w-[10%] border-2  border-slate-200 p-2">Mission</th>
-            <th className="w-[50%] sm:w-[60%] border border-slate-200">
+          <tr>
+            <th className="font-bold capitalize text-left px-2 border py-1">
+              Mission
+            </th>
+            <th className="font-bold capitalize text-left px-2 border py-1">
               Description
             </th>
-            <th className="w-[20%] border-2 border-slate-200 ">Status</th>
-            <th className="w-[20%] border-2 border-slate-200 "> </th>
+            <th className="font-bold capitalize text-left px-2 border py-1">
+              Status
+            </th>
+            <th className="font-bold capitalize text-left px-2 border py-1">
+              {' '}
+            </th>
           </tr>
         </thead>
         <tbody>
-          {items.map((mission) => (
-            <tr key={mission.mission_id}>
-              <td className="p-2 border-2 border-slate-200 text">
-                {mission.mission_name}
+          {missions.map((info) => (
+            <tr className="even:bg-slate-400" key={info.mission_id}>
+              <td className="font-bold text-left px-2 border">
+                {info.mission_name}
               </td>
-
-              <td className="p-2 border-2  border-slate-200">
-                {mission.description}
+              <td className="text-left px-2 border w-6/12">
+                {info.description}
               </td>
-
-              <td className="border-2  text-center border-slate-200 ">
-                {!mission.reserved && (
-                  <span className="bg-[#6D757D] p-1 px-1.5 text-white rounded-md font-semibold">
-                    NOT A MEMBER
-                  </span>
-                )}
-                {mission.reserved && (
-                  <span className="bg-[#18A2B8] p-1 px-1.5 text-white rounded-md font-semibold">
-                    Active Member
-                  </span>
-                )}
+              <td className=" border my-2 px-2">
+                <span className="text-xs bg-slate-600 rounded-md font-semibold flex justify-center items-center mx-auto uppercase">
+                  {info.joined ? 'Active Member' : 'Not a member'}
+                </span>
               </td>
-
-              <td className="p-3 border-2 border-slate-200 text-center ">
+              <td className=" border my-2">
                 <button
                   type="button"
-                  className="p-2 border-2 border-slate-400 rounded-md"
-                  onClick={() => toggleStatus(mission.mission_id)}
-                  style={{
-                    borderColor: mission.reserved ? '#d90429' : '#343a40',
-                    color: mission.reserved ? '#d90429' : '#343a40',
-                  }}
+                  className="border p-1 rounded w-28 flex justify-center items-center mx-auto"
+                  onClick={() => handleClick(info.mission_id)}
                 >
-                  {mission.reserved ? 'Leave Mission' : 'Join Mission'}
+                  {info.joined ? 'Leave mission' : 'Join Mission'}
                 </button>
               </td>
             </tr>
