@@ -58,11 +58,12 @@ export const fetchRockets = () => async (dispatch) => {
   await fetch(URL)
     .then((response) => response.json())
     .then((data) => { rocketList = data; });
+  console.log(rocketList);
   rocketList.forEach((rocket) => {
     rocketUpdated = [...rocketUpdated, {
       id: rocket.rocket_id,
       name: rocket.rocket_name,
-      type: rocket.rocket_type,
+      type: rocket.description,
       img: rocket.flickr_images[0],
     }];
   });
