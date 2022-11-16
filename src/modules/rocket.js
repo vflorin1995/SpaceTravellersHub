@@ -17,11 +17,17 @@ const Rocket = ({
   return (
     <div className="flex my-8 mx-8">
       <img className="w-60" src={img} alt="spaceship" />
-      <div>{id}</div>
-      <div>{name}</div>
-      <div>{type}</div>
-      <div>{res}</div>
-      <button type="button" onClick={reservation}>Make reservation</button>
+
+      <div className="flex-row mx-8">
+        <div className="flex items-center mb-2">
+          { res ? <div className="bg-cyan-700 text-white p-1 px-2 mr-2"> RESERVED </div> : ''}
+          <div className="text-xl">{name}</div>
+        </div>
+        <div>{type}</div>
+        <div>{res}</div>
+        { res ? <button className="border-2 bg-white text-gray-500 px-4 py-2 mt-2" type="button" onClick={reservation}>Cancel reservation</button>
+          : <button className="bg-blue-500 text-white px-4 py-2 mt-2" type="button" onClick={reservation}>Make reservation</button>}
+      </div>
     </div>
   );
 };
