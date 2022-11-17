@@ -6,7 +6,6 @@ import store from '../../redux/configureStore';
 
 describe('Jest Snapshot testing suite', () => {
   it('Matches DOM Snapshot', () => {
-    console.log('testssssssssssss');
     const quotes = renderer.create(
       <Provider store={store}>
         <Router>
