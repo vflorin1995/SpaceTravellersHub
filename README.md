@@ -156,9 +156,21 @@ Feel free to check the [issues page](https://github.com/vflorin1995/SpaceTravell
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🙏 Acknowledgments <a name="acknowledgements"></a>
+## 🔭 Future Features <a name="future-features"></a>
 
-I would like to thank Emilia for creating this wonderful project that made us imporve our skills.
+- Will make reservations get stored in the local stoage
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## ❓ FAQ <a name="faq"></a>
+
+- **Can I implement the code in my project?**
+
+  - Yes you can, as long as you quoute the original project in the readme.file
+
+- **Can you implement dragons in the future**
+
+  - Sure, we will work on it soon.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
