@@ -14,6 +14,7 @@
 - ES6
 - JEST
 - React
+- Tailwind
 
 ## Getting Started
 
