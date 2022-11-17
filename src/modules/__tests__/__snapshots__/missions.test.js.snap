@@ -2,7 +2,7 @@
 
 exports[`Testing by jest snapshots matches missions Snapshot 1`] = `
 <div
-  className="w-full px-2 md:px-8"
+  className="w-full px-2 md:px-8 pt-4"
 >
   <table
     className="w-full border"
