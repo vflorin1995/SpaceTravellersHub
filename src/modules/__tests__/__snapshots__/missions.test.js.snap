@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing by jest snapshots matches missions Snapshot 1`] = `
+<div
+  className="w-full px-2 md:px-8 pt-4"
+>
+  <table
+    className="w-full border"
+  >
+    <thead>
+      <tr>
+        <th
+          className="font-bold capitalize text-left px-2 border py-1"
+        >
+          Mission
+        </th>
+        <th
+          className="font-bold capitalize text-left px-2 border py-1"
+        >
+          Description
+        </th>
+        <th
+          className="font-bold capitalize text-left px-2 border py-1"
+        >
+          Status
+        </th>
+        <th
+          className="font-bold capitalize text-left px-2 border py-1"
+        >
+           
+        </th>
+      </tr>
+    </thead>
+    <tbody />
+  </table>
+</div>
+`;

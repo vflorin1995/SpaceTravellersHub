@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Jest Snapshot testing suite Matches DOM Snapshot for the profile component 1`] = `
+<div
+  className="grid grid-cols-2 m-8 gap-4"
+>
+  <div
+    className="flex flex-col gap-4"
+  >
+    <table
+      className="w-full"
+    >
+      <thead>
+        <tr>
+          <td
+            className="text-2xl font-bold capitalize pb-4"
+          >
+            my missions
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          className="flex flex-col"
+        >
+          <td
+            className="py-2 border px-1"
+          >
+            You do not have any rocket reservations yet
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <table
+      className="w-full"
+    >
+      <thead
+        className="text-2xl mb-2"
+      >
+        <tr>
+          <td
+            className="text-2xl font-bold capitalize pb-4"
+          >
+            My rockets
+          </td>
+        </tr>
+      </thead>
+      <thead
+        className="w-full"
+      />
+    </table>
+  </div>
+</div>
+`;
