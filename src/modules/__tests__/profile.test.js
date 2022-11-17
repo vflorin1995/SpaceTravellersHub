@@ -1,15 +1,15 @@
 import renderer from 'react-test-renderer';
 import { HashRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import Rockets from '../rockets';
 import store from '../../redux/configureStore';
+import MyProfile from '../myProfile';
 
 describe('Jest Snapshot testing suite', () => {
-  it('Matches DOM Snapshot', () => {
+  it('Matches DOM Snapshot for the profile component', () => {
     const quotes = renderer.create(
       <Provider store={store}>
         <Router>
-          <Rockets />
+          <MyProfile />
         </Router>
       </Provider>,
     ).toJSON();
