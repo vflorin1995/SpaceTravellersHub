@@ -156,9 +156,9 @@ Feel free to check the [issues page](https://github.com/vflorin1995/SpaceTravell
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🔭 Future Features <a name="future-features"></a>
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-- Will make reservations get stored in the local stoage
+I would like to thank Emilia for creating this wonderful project that made us imporve our skills.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
