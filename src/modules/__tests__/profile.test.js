@@ -5,15 +5,14 @@ import store from '../../redux/configureStore';
 import MyProfile from '../myProfile';
 
 describe('Jest Snapshot testing suite', () => {
-    it('Matches DOM Snapshot for the profile component', () => {
-      const quotes = renderer.create(
-        <Provider store={store}>
-          <Router>
-            <MyProfile />
-          </Router>
-        </Provider>,
-      ).toJSON();
-      expect(quotes).toMatchSnapshot();
-    });
+  it('Matches DOM Snapshot for the profile component', () => {
+    const quotes = renderer.create(
+      <Provider store={store}>
+        <Router>
+          <MyProfile />
+        </Router>
+      </Provider>,
+    ).toJSON();
+    expect(quotes).toMatchSnapshot();
   });
-  
+});
